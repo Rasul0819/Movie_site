@@ -1,0 +1,5 @@
+{% for i in movies %}
+    {{i.name}}
+    <img src="{{i.image.url}}" alt="{{i.name}}">
+    {{i.realised_date}}
+{% endfor %}
