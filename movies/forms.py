@@ -12,5 +12,15 @@ class SingUpForm(UserCreationForm):
         model = User
         fields = ['username','email','password1','password2',]
         
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = models.Comment
+        fields = ['text']
+        widgets = {'text':
+                   forms.Textarea(
+                       attrs={'class':'form_control',
+                              'rows':3,
+                              'placeholder':'Ваш коммент...'})},
+        labels = {'text':''}
 
         

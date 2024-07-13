@@ -45,4 +45,20 @@ def log_out(request):
 
 def post_detail(request,id):
     movie = get_object_or_404(models.Movies,id=id)
-    return render(request,'movie_detail.html',{'movie':movie})
+    comments = models.Comment.objects.all()
+    if  request.method == 'POST':
+        comment_form = forms.CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.movie = movie
+            new_comment.author = request.user
+            new_comment.save()
+            return redirect('detail',id=movie.id)
+    else:
+        comment_form = forms.CommentForm()
+    return render(request,'movie_detail.html',{
+        'movie':movie,
+        'comments':comments,
+        'comment_form':comment_form
+        })
+

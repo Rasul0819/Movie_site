@@ -14,7 +14,8 @@
       <p class="col-md-8 fs-4" style="width: 500px; margin-left: 20px;">{{i.description|slice:":200"}}...</p>
     </div >
       <div style="display: flex; margin-top: 20px;">
-        <button class="btn btn-primary btn-lg" type="button">Подробнее</button>
+  
+        <a href="{% url 'detail' i.id %}"><button class="btn btn-primary btn-lg" type="button">Подробнее</button></a>
 <p style="margin-left: 400px"> {{i.realised_date}}</p>
         </div>
     </div>
