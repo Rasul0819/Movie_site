@@ -22,8 +22,18 @@
               <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
               <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
               <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{category}}
+                  </button>
+                  <ul class="dropdown-menu">
+                    {% for i in categories %}
+                    <li><a class="dropdown-item" href="{% url 'movie_list' %}">{{ i.slug }}</a></li>
+                    {% endfor %}
+
+                  </ul>
+              </div></li>
             </ul>
     
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

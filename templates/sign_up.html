@@ -1,10 +1,40 @@
+
 {% extends 'base.html' %}
-
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
 {% block content %}
-<form action="#" method="post">
+
+    
+<main class="form-signin w-100 m-auto">
+    <div class="container">
+    <form action="{% url 'signup' %}" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Registraciya">
-</form>
+    <div class="element">
+        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+        <h1>Username</h1>
+        <h1>{{form.username}}</h1>
+    </div>
+    <div class="element">
+        <br>
+        <h1>Email</h1>
+        <h1>{{form.email}}</h1>
+    </div>
+    <br>
+    <div class="element">
+        <h1>Password 1</h1>
+        <h1>{{form.password1}}</h1>
+    </div>
+    <br>
+    <div class="element">
+        <h1>Password 2</h1>
+        <h1>{{form.password2}}</h1>
+    </div>
+    <br>
+
+    <input type="submit" name="" id="">
+</div>
+
+
 {% endblock %}
+
+
