@@ -8,5 +8,5 @@ urlpatterns = [
     path('signup/',views.registration,name='signup'),
     path('logout/',views.log_out,name='logout'),
     path('detail/<int:id>',views.post_detail,name='detail'),
-    # path('category/<str:slug>',views.category, name='category')
+    path('category/<str:category_slug>',views.movie_list, name='category')
 ]
